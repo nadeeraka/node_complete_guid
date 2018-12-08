@@ -1,9 +1,11 @@
+const path = require("path");
 const express = require("express");
 
 const router = express.Router();
 
-router.get("/product", (req, res) => {
-  res.send("product page ");
+const url = path.join(__dirname, "../", "views", "add-product.html");
+router.get("/admin/add-product", (req, res) => {
+  res.sendFile(url);
 });
 
 router.get("/shop", (req, res) => {
