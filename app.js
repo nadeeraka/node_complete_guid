@@ -10,7 +10,8 @@ const dir = require("./util/path");
 const app = express();
 const url = path.join(dir, "views", "404.html");
 app.use(bodyParser.urlencoded({ extended: false }));
-
+// this midleware responsibale for allow access for public directory
+app.use(express.static(path.join(__dirname, "public")));
 const adminRouter = require("./routes/admin");
 const shopRouter = require("./routes/shop");
 app.use(adminRouter);
